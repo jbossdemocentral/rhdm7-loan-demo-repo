@@ -8,12 +8,14 @@
   <name>loan-application</name>
   <description>Loan Application Demo</description>
   <dependencies>
+    <!--
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-api</artifactId>
       <scope>provided</scope>
       <version>7.5.0.Final-redhat-3</version>
     </dependency>
+    -->
   </dependencies>
   <repositories>
     <repository>
