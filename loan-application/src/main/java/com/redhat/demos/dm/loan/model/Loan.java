@@ -16,7 +16,9 @@ public class Loan implements java.io.Serializable {
 	private double interestRate;
 	@org.kie.api.definition.type.Label(value = "Approved")
 	private boolean approved;
-
+	@org.kie.api.definition.type.Label(value = "Reason")
+	private String reason;	
+	
 	public Loan() {
 	}
 
@@ -52,11 +54,27 @@ public class Loan implements java.io.Serializable {
 		this.approved = approved;
 	}
 
-	public Loan(int amount, int duration, double interestRate, boolean approved) {
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
+	public Loan(int amount, int duration, double interestRate, boolean approved, String reason) {
+		super();
 		this.amount = amount;
 		this.duration = duration;
 		this.interestRate = interestRate;
 		this.approved = approved;
+		this.reason = reason;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Loan [amount=%s, duration=%s, interestRate=%s, approved=%s, reason=%s]", amount, duration,
+				interestRate, approved, reason);
 	}
 
 }
