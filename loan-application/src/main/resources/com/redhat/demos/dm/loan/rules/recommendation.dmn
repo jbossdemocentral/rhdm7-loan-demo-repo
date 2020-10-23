@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_C159F266-40FF-49CB-B4D9-447DFACDDC16" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_A67C7376-490E-4C47-826D-1748DB118976" name="recommendation" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_C159F266-40FF-49CB-B4D9-447DFACDDC16">
+  <dmn:extensionElements/>
+  <dmn:decision id="_2B8FE31F-9977-467C-82C0-BF78414573A8" name="Recommendation">
+    <dmn:extensionElements/>
+    <dmn:variable id="_5BEFFE86-9368-41B1-A5B9-90B4B113952C" name="Recommendation" typeRef="string"/>
+    <dmn:informationRequirement id="_8B07A534-6324-4698-8F7B-26BE74887DD8">
+      <dmn:requiredInput href="#_595824CC-0014-4E72-B511-B337953C42DF"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_0D3D30E2-3BE6-4597-B338-541076DFDA57" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_B0FE91CA-3500-4139-A61A-5B4113DDC223">
+        <dmn:inputExpression id="_CE8D89F1-DD07-4D7C-AA29-43AE102AC3AB" typeRef="number">
+          <dmn:text>Credit Score</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_D6FE3688-01DE-4ED2-B41C-27E317829106"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_0DE8E4AF-2068-4D33-BD41-16D09A2C6CB4">
+        <dmn:inputEntry id="_D5C4CC48-9226-463F-B489-8771578D9714">
+          <dmn:text>&lt; 200</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_DE7BAF15-C648-4691-A2A8-D6D8BFBDD9C6">
+          <dmn:text>"Please add an extra guarantee and apply again"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_A75F8CDC-256A-4ACB-A54D-4C38663E14BC">
+        <dmn:inputEntry id="_D37A8B61-E042-410D-98A2-2153825C56C4">
+          <dmn:text>[200..400]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_3DA8E12F-5D2B-4327-B927-F05F57CA460E">
+          <dmn:text>"With current credit score you can apply for a loan under 4000 or try to add an extra guarantee"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_4293A004-E43D-4322-826F-F9D94DE0EF32">
+        <dmn:inputEntry id="_EA6BCA32-609E-41EC-A843-50984E2DE77B">
+          <dmn:text>&gt; 400</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_C34DAE33-AFE5-423B-BEEE-F1965A4AB56D">
+          <dmn:text>"With current credit score you can apply for a loan under 10000"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:inputData id="_595824CC-0014-4E72-B511-B337953C42DF" name="Credit Score">
+    <dmn:extensionElements/>
+    <dmn:variable id="_18A4D721-1662-45A9-91FA-C6BBEFEAB3AC" name="Credit Score" typeRef="number"/>
+  </dmn:inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_0D3D30E2-3BE6-4597-B338-541076DFDA57">
+            <kie:width>50.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>783.0</kie:width>
+            <kie:width>100.0</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-_595824CC-0014-4E72-B511-B337953C42DF" dmnElementRef="_595824CC-0014-4E72-B511-B337953C42DF" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="509" y="345" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_2B8FE31F-9977-467C-82C0-BF78414573A8" dmnElementRef="_2B8FE31F-9977-467C-82C0-BF78414573A8" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="502" y="237" width="116" height="51"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_8B07A534-6324-4698-8F7B-26BE74887DD8" dmnElementRef="_8B07A534-6324-4698-8F7B-26BE74887DD8">
+        <di:waypoint x="559" y="370"/>
+        <di:waypoint x="560" y="237"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
